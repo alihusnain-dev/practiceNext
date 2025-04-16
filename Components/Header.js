@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { MyContext } from '@/Helper/Context';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,6 +13,7 @@ const Header = () => {
     { name: 'User API', href: '/UserAPI' },
     { name: 'Context API', href: '/Context' },
   ];
+  const user = useContext(MyContext);
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-gray-900 bg-opacity-80 backdrop-blur-sm shadow-md">
@@ -28,7 +30,9 @@ const Header = () => {
               {link.name}
             </Link>
           ))}
+          <span className="text-gray-400 cursor-pointer">{user.username}</span>
         </nav>
+
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">
