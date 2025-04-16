@@ -1,10 +1,28 @@
 "use client"
 import React from 'react'
 import { motion } from 'framer-motion';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Bounce } from 'react-toastify';
 const page = () => {
+  const notify = () => {
+    toast.success('Welcome to my Projects!', {
+    position: "bottom-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    transition: Bounce,
+    });
+  }
   return (
     <>
       <main className="bg-gray-900 text-white font-sans">
+      {/* <Button onClick={notify}>Notify !</Button> */}
+      <ToastContainer />
 
         {/* Hero Section */}
         <section className="h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-br from-purple-700 via-indigo-800 to-blue-900">
@@ -30,7 +48,7 @@ const page = () => {
             transition={{ delay: 0.6, duration: 1 }}
             className="mt-8 space-x-4"
           >
-            <a href="#projects" className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full transition">
+            <a onClick={notify} href="#projects" className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full transition">
               View Projects
             </a>
             <a href="#contact" className="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
