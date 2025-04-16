@@ -10,8 +10,7 @@ const Header = () => {
   const navLinks = [
     { name: 'ToDo List', href: '/ToDo' },
     { name: 'User API', href: '/UserAPI' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Context API', href: '/Context' },
   ];
 
   return (
